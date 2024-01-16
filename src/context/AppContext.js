@@ -85,8 +85,6 @@ const initialState = {
         { id: "Sales", name: 'Sales', cost: 70 },
         { id: "Human Resource", name: 'Human Resource', cost: 40 },
         { id: "IT", name: 'IT', cost: 500 },
-        { id: "HR", name: 'HR', cost: 0 },
-        { id: "Admin", name: 'Admin', cost: 0 },
     ],
     currency: '£'
 };

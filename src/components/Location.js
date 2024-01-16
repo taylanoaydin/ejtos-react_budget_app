@@ -1,13 +1,15 @@
 import React, { useContext } from 'react';
 import { AppContext } from '../context/AppContext';
+import { Dropdown } from 'react-bootstrap';
+import './CustomDropdown.css';
 
 const Location = () => {
   const { currency, dispatch } = useContext(AppContext);
 
-  const changeLocation = (val) => {
+  const changeLocation = (eventKey) => {
     dispatch({
       type: 'CHG_CURRENCY',
-      payload: val,
+      payload: eventKey,
     });
   };
 
@@ -31,16 +33,22 @@ const Location = () => {
   }
 
   return (
-    <div className='alert alert-secondary'>
-      <label htmlFor="Location" className="dropdown-header">Currency ({curtext})</label>
-      <select name="Location" id="Location" value={currency} onChange={event => changeLocation(event.target.value)}>
-        <option value="$">$ Dollar</option>
-        <option value="£">£ Pound</option>
-        <option value="€">€ Euro</option>
-        <option value="₹">₹ Rupee</option>
-      </select>
+    <div>
+      <Dropdown className="green-dropdown" onSelect={changeLocation}>
+        <Dropdown.Toggle variant="success" id="dropdown-basic">
+          Currency ({curtext})
+        </Dropdown.Toggle>
+
+        <Dropdown.Menu>
+          <Dropdown.Item eventKey="$">$ Dollar</Dropdown.Item>
+          <Dropdown.Item eventKey="£">£ Pound</Dropdown.Item>
+          <Dropdown.Item eventKey="€">€ Euro</Dropdown.Item>
+          <Dropdown.Item eventKey="₹">₹ Rupee</Dropdown.Item>
+        </Dropdown.Menu>
+      </Dropdown>
     </div>
   );
 };
+
 
 export default Location;

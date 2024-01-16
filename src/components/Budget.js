@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { AppContext } from '../context/AppContext';
 
 const Budget = () => {
-    const { dispatch, expenses, budget } = useContext(AppContext);
+    const { currency, dispatch, expenses, budget } = useContext(AppContext);
     const totalExpenses = expenses.reduce((total, item) => {
         return (total = total + item.cost);
     }, 0);
@@ -34,9 +34,24 @@ const Budget = () => {
     }
     return (
 <div className='alert alert-secondary'>
-<span>Budget: £ </span>
-<input type="number" step="10" value={budget} onChange={event=> changeBudget(event.target.value)}></input>
-</div>
+            <div className="row">
+                <div className="col-auto">
+                    <label htmlFor="budgetInput" className="col-form-label">
+                        Budget: {currency}
+                    </label>
+                </div>
+                <div className="col">
+                    <input
+                        type="number"
+                        id="budgetInput"
+                        className="form-control"
+                        step="10"
+                        value={budget}
+                        onChange={event => changeBudget(event.target.value)}
+                    />
+                </div>
+            </div>
+        </div>
     );
 };
 export default Budget;

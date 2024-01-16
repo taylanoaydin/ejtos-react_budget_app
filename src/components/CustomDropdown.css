@@ -1,0 +1,11 @@
+/* CustomDropdown.css */
+.green-dropdown .dropdown-item {
+    background-color: green; /* or any shade of green you prefer */
+    color: black !important; /* ensures text color is black */
+  }
+  
+  .green-dropdown .dropdown-item:hover, .green-dropdown .dropdown-item:focus {
+    background-color: white !important; /* white background on hover/focus */
+    color: black !important; /* ensures text color remains black */
+  }
+  
